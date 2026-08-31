@@ -1,5 +1,7 @@
-import { Component } from "@angular/core";
-import { RouterLink, RouterOutlet } from "@angular/router";
+import { Component, inject } from "@angular/core";
+import { Router, RouterLink, RouterOutlet } from "@angular/router";
+
+
 
 @Component({
   imports: [RouterOutlet,RouterLink],
@@ -8,4 +10,21 @@ import { RouterLink, RouterOutlet } from "@angular/router";
   templateUrl: './app.html',
 })
 export class App {
+ private router = inject(Router);
+
+   sampleMessage: SampleMessage={
+    message: 'Message',
+    location: 'Location'
+   }
+
+   goToHome():void{
+   this.router.navigate(['/home'],{
+    state: {data: this.sampleMessage}
+   });
+   }
+}
+
+export interface SampleMessage{
+  message: string;
+  location: string;
 }

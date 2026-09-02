@@ -1,14 +1,13 @@
-<h1 class="text-center primary">App Component</h1>
- 
-<ul>
-      <li><a routerLink="">App</a></li>
-    <li><a routerLink="/home" [queryParams]="sampleMessage">Home</a></li>
-    <ul>
-    <ul>
-       <li><a routerLink="/home/dashboard">child</a></li>
-    </ul>
-       <li><a [routerLink]="['/about' , 5, 10]">About</a></li>
-</ul>
-<button (click)="goToHome()">Go to Home</button>
-<router-outlet></router-outlet>
- 
+ <a routerLink = "" >App</a> 
+    </li>
+    <li>      <a routerLink = "/home">Home</a>
+  </li>
+  <li>
+      <a routerLink = "/home/dashboard">Dashboard</a>
+  </li>
+  <li>      <a routerLink ="/about'"> About</a>
+  </li>
+
+
+<router-outlet>
+</router-outlet>

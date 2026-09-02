@@ -1,24 +1,24 @@
+import { CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+// import { DoublePipe } from '../pipes/double-pipe';
 
 @Component({
-  imports: [],
+imports: [UpperCasePipe,CurrencyPipe,DatePipe, ], 
   selector: 'app-about',
   styleUrl: './about.scss',
   templateUrl: './about.html',
 })
 export class About {
+ userDetail: UserDetail ={
+      username: 'User name',
+      fees: 1300,
+      dob: new Date
+  } 
 
- message: number=0;
-
-   constructor(
-    private activatedRoute: ActivatedRoute
-  ){
-    this.activatedRoute.params.subscribe(
-      (params) => {
-        this.message = params['msg'];
-        console.log(this.message);
-      }
-    );
-  }
+}
+export interface UserDetail {
+  username: string,
+  fees: number,
+  dob: Date
 }

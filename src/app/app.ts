@@ -12,19 +12,19 @@ import { Router, RouterLink, RouterOutlet } from "@angular/router";
 export class App {
  private router = inject(Router);
 
-   sampleMessage: SampleMessage={
-    message: 'Message',
-    location: 'Location'
-   }
+  goToHome(): void {
+    this.router.navigate(['/home'],{
+      state: {data: this.sampleMessage }
+    });
+  }
+  sampleMessage: SampleMessage = {
+    message:'Message',
+    location:'Location'
+  }
 
-   goToHome():void{
-   this.router.navigate(['/home'],{
-    state: {data: this.sampleMessage}
-   });
-   }
 }
 
-export interface SampleMessage{
-  message: string;
-  location: string;
+export interface SampleMessage {
+  message: string,
+  location: string
 }

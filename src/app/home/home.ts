@@ -1,29 +1,32 @@
-import { Component, effect, EventEmitter, Input, Output } from '@angular/core';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { HomeService } from './services/home.service';
 
 @Component({
-  imports: [],
   selector: 'app-home',
-  styleUrl: './home.scss',
+  imports: [RouterOutlet],
   templateUrl: './home.html',
+  styleUrl: './home.scss'
 })
-export class Home {
-  message: string ='';  
+export class HomeComponent implements OnInit, AfterViewInit {
 
-  // constructor(
-  //   private ActivatedRoute: ActivatedRoute
-  // ){
-  //   this.ActivatedRoute.queryParams.subscribe(
-  //     (params)=>{
-  //       this.message =params['message'];
-  //       console.log(this.message);
-  //     }
-  //   );
-  // }
+  public homeService = inject(HomeService);
 
-  constructor(private router: Router){
-    effect(()=>{
-      console.log(this.router.lastSuccessfulNavigation()?.extras.state?.['data']);
-    });
+  total: number = 0;
+  message: string = 'Not Rendered';
+
+  ngOnInit(): void {
+    this.message = 'Rendering...';
+
+    let x = 5;
+    let b = 423;
+
+    this.total = this.homeService.sum(x, b);
+
+    console.log(this.homeService.getDateFromLoginPage());
+  }
+
+  ngAfterViewInit(): void {
+    this.message = 'Rendered';
   }
 }

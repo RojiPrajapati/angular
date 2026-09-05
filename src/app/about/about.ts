@@ -1,24 +1,11 @@
 import { CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-// import { DoublePipe } from '../pipes/double-pipe';
-
+import { DoublePipe } from '../double-pipe';
 @Component({
-imports: [UpperCasePipe,CurrencyPipe,DatePipe, ], 
+   imports: [],
   selector: 'app-about',
   styleUrl: './about.scss',
   templateUrl: './about.html',
 })
-export class About {
- userDetail: UserDetail ={
-      username: 'User name',
-      fees: 1300,
-      dob: new Date
-  } 
-
-}
-export interface UserDetail {
-  username: string,
-  fees: number,
-  dob: Date
-}
+export class About {}

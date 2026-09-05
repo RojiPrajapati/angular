@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../../services/api';
 
 @Component({
   imports: [],
@@ -6,4 +8,19 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.scss',
   templateUrl: './dashboard.html',
 })
-export class Dashboard {}
+export class Dashboard implements OnInit {
+
+  private router = inject(Router);
+  private activatedRoute = inject(ActivatedRoute);
+  private apiService = inject(ApiService);
+
+  ngOnInit(): void {
+
+    this.apiService.getAllProduct().subscribe(
+      (response: any) => {
+        console.log(response);
+      }
+    );
+
+  }
+}

@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "hrm": {
+    "HRM": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -32,6 +32,7 @@
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
+
             ]
           },
           "configurations": {
@@ -62,10 +63,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "hrm:build:production"
+              "buildTarget": "HRM:build:production"
             },
             "development": {
-              "buildTarget": "hrm:build:development"
+              "buildTarget": "HRM:build:development"
             }
           },
           "defaultConfiguration": "development"

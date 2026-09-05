@@ -1,13 +1,33 @@
- <a routerLink = "" >App</a> 
-    </li>
-    <li>      <a routerLink = "/home">Home</a>
-  </li>
-  <li>
-      <a routerLink = "/home/dashboard">Dashboard</a>
-  </li>
-  <li>      <a routerLink ="/about'"> About</a>
-  </li>
+<h1 class="text-primary text-center">{{ header }}</h1>
+<br>
 
-
-<router-outlet>
-</router-outlet>
+<div class="container">
+    <!-- One way binding -->
+    <!-- String Interpolation -->
+    <span>{{ secondTitle }}</span>
+    <hr>
+    <!-- One way binding -->
+    <input type="checkbox" id="TestCheckbox" [checked]="isChecked">
+    <label for="TestCheckbox">First Checkbox</label>
+    <br>
+    <!-- Two way binding -->
+    <input type="checkbox" id="TestCheckbox2" [(ngModel)]="isChecked">
+    <label for="TestCheckbox2">Second Checkbox</label>
+    <br>
+    <!-- Not Two way binding -- Template Referencing-->
+    <input type="checkbox" id="TestCheckbox2" #TestCheckboxTemp>
+    <label for="TestCheckbox2">Second Checkbox</label>
+    <br>
+    {{ isChecked }}
+    <br>
+    <input type="text" [value]="isChecked" (input)="changeCheckbox()">
+</div>
+<hr>
+<div class="container">
+    <app-home 
+    [parentValue]="isChecked"
+    (childEvent)="handleChildEvent($event)"
+    ></app-home>
+</div>
+<hr>
+<p class="text-center">---End of Line--</p>

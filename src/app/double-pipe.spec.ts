@@ -1,8 +1,10 @@
-import { DoublePipe } from './double-pipe';
+import { Pipe, PipeTransform } from '@angular/core';
 
-describe('DoublePipe', () => {
-  it('create an instance', () => {
-    const pipe = new DoublePipe();
-    expect(pipe).toBeTruthy();
-  });
-});
+
+@Pipe({
+  name: 'double',
+})
+export class DoublePipe implements PipeTransform {
+  transform(value: number): number {
+    return value * 3;
+  }}

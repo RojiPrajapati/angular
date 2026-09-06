@@ -1,33 +1,33 @@
-<h1 class="text-primary text-center">{{ header }}</h1>
+<h1 class="text-center">
+    Human Resource Management
+</h1>
+
+<nav class="navbar navbar-expand bg-info p-2">
+
+    <div class="container">
+
+     <a routerLink="/dashboard" class="nav-link text-white">
+    Dashboard
+</a>
+
+      <a routerLink="/contact" class="nav-link text-white">
+    Contact
+</a>
+
+        <a routerLink="/login" class="nav-link text-white">
+            Log In
+        </a>
+
+    </div>
+
+</nav>
+
 <br>
 
-<div class="container">
-    <!-- One way binding -->
-    <!-- String Interpolation -->
-    <span>{{ secondTitle }}</span>
-    <hr>
-    <!-- One way binding -->
-    <input type="checkbox" id="TestCheckbox" [checked]="isChecked">
-    <label for="TestCheckbox">First Checkbox</label>
-    <br>
-    <!-- Two way binding -->
-    <input type="checkbox" id="TestCheckbox2" [(ngModel)]="isChecked">
-    <label for="TestCheckbox2">Second Checkbox</label>
-    <br>
-    <!-- Not Two way binding -- Template Referencing-->
-    <input type="checkbox" id="TestCheckbox2" #TestCheckboxTemp>
-    <label for="TestCheckbox2">Second Checkbox</label>
-    <br>
-    {{ isChecked }}
-    <br>
-    <input type="text" [value]="isChecked" (input)="changeCheckbox()">
+<div class="mb-6">
+    <router-outlet></router-outlet>
 </div>
-<hr>
-<div class="container">
-    <app-home 
-    [parentValue]="isChecked"
-    (childEvent)="handleChildEvent($event)"
-    ></app-home>
-</div>
-<hr>
-<p class="text-center">---End of Line--</p>
+
+<footer class="container w-75 bg-secondary text-white text-center p-2 mt-5">
+    Human Resource Management © 2026
+</footer>

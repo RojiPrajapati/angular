@@ -1,10 +1,11 @@
 import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-import { Home } from './home/home';
+// import { Home } from './home/home';
+
 
 @Component({
-  imports: [FormsModule, Home],
+  imports: [FormsModule, RouterOutlet],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',

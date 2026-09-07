@@ -1,30 +1,32 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TestService } from '../../service/test';
-@Component({
+// import { TestService } from '../../service/test';
+// src/app/home/dashboard/dashboard.ts
+import { ApiService } from '../../service/api.service';@Component({
   imports: [],
   selector: 'app-dashboard',
   styleUrl: './dashboard.scss',
   templateUrl: './dashboard.html',
 })
-export class Dashboard implements OnInit {
+export class Dashboard {
 
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
-  private testService = inject(TestService);
-
-  ngOnInit(): void {
-    // let data = this.router.lastSuccessfulNavigation()?.extras?.state?.['data'];
-
-    // this.activatedRoute.queryParams.subscribe(
-    //   (queryParams) => {
-    //     console.log(JSON.parse(queryParams['data']));
-    //   }
-    // );
-
-    // console.log(data);
-
-    this.testService.getData();
+  private apiService = inject(ApiService);
+  productId: number = 5;
+  abc: string[] = ['']
+  getAllProducts(){
+    this.apiService.getAllProducts().subscribe(
+      (response) => {
+        console.log(response)
+      }
+    );
   }
-
+  getProductsId(productId: number){
+    this.apiService.getProductById(productId).subscribe(
+      (response) => {
+        console.log(response)
+      }
+    );
+  }
 }

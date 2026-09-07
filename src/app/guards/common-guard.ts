@@ -1,5 +1,20 @@
-import { CanActivateFn } from '@angular/router';
+import { CanActivateFn, Router } from '@angular/router';
+import { ApiService } from '../service/api.service';
+import { inject } from '@angular/core';
 
-export const commonGuard: CanActivateFn = (route, state) => {
+export const authGuard: CanActivateFn = (route, state) => {
+  
   return true;
+};
+
+export const contactGuard: CanActivateFn = (route, state) => {
+  const apiService = inject(ApiService)
+  const router = inject(Router)
+
+  if(apiService.isContactAllowed()){
+    return true
+  }
+  router.navigate(['/denied'])
+  return false;
+
 };
